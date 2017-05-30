@@ -8,6 +8,8 @@
 
 package com.hussain.progosteach.lithosample.lithography;
 
+import android.support.v7.widget.RecyclerView;
+
 import com.facebook.yoga.YogaAlign;
 
 import com.facebook.yoga.YogaFlexDirection;
@@ -33,6 +35,17 @@ public class LithographyRootComponentSpec {
 
     return Recycler.create(c)
         .binder(recyclerBinder)
+            .onScrollListener(new RecyclerView.OnScrollListener() {
+              @Override
+              public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+                super.onScrollStateChanged(recyclerView, newState);
+              }
+
+              @Override
+              public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+              }
+            })
         .withLayout()
         .paddingDip(YogaEdge.TOP, 8)
         .testKey(MAIN_SCREEN)
